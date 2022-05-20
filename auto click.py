@@ -22,13 +22,13 @@ rot = auto_rot
 escape = 1  # 在click被打印出后，你有escape秒的自由操作时间，你可以在这时停止运行
 
 while True:
-    start = time.clock()
+    start = time.perf_counter()
     while True:
         #print(pyautogui.position())   # 得到当前鼠标位置，输出
         rdnum = random.random()
         target = (rot[0] + (rot[2] - rot[0])*rdnum, rot[1] + (rot[3] - rot[1])*rdnum)
         pyautogui.moveTo(target[0], target[1], duration = rdnum + 1)
-        end = time.clock()
+        end = time.perf_counter()
         if (end - start) > 5:
             #print(end - start)
             break
